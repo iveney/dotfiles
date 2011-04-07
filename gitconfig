@@ -1,0 +1,16 @@
+[user]
+	name = Zigang Xiao
+	email = iveney@gmail.com
+[core]
+	editor = /usr/bin/vim
+	excludesfile = /Users/iveney/.gitignore_global
+[color]
+	diff = auto
+[alias]
+	wdiff = diff --color-words
+	st = status
+	ci = commit
+	br = branch
+	co = checkout
+	df = diff
+	lg = log -p
