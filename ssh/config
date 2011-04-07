@@ -1,0 +1,15 @@
+Host ncsa
+	HostName ac.ncsa.uiuc.edu
+	User tingyu1
+
+Host chip
+	HostName chip.csl.uiuc.edu
+	User zxiao2
+
+Host ews
+	HostName remlnx.ews.uiuc.edu
+	User zxiao2
+
+Host orange
+	HostName orange.csl.uiuc.edu
+	User iveney
