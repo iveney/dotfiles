@@ -14,3 +14,6 @@
 	co = checkout
 	df = diff
 	lg = log -p
+[github]
+	user = iveney
+	token = 114933d32687c5f3b206fd9c94c262d6
