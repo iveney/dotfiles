@@ -32,3 +32,6 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 
 # ssh host completion
 complete -o default -o nospace -W "$(grep '^Host' $HOME/.ssh/config | cut -d ' ' -f2)" scp sftp ssh
+
+# homebrew bash completion
+source `brew --prefix`/Library/Contributions/brew_bash_completion.sh
