@@ -35,3 +35,11 @@ complete -o default -o nospace -W "$(grep '^Host' $HOME/.ssh/config | cut -d ' '
 
 # homebrew bash completion
 source `brew --prefix`/Library/Contributions/brew_bash_completion.sh
+
+# OpenCV for python
+export PYTHONPATH="/usr/local/lib/python2.6/site-packages/:$PYTHONPATH"
+
+if [ -f `brew --prefix`/etc/autojump ]; then
+	. `brew --prefix`/etc/autojump
+fi
+
