@@ -46,3 +46,10 @@ tags
 *.bbl
 *.aux
 *.out
+
+# TextMate LaTeX compilation files
+*.blg
+*.fdb_latexmk
+*.maf
+*.mtc
+*.mtc0

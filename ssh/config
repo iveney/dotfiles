@@ -10,6 +10,47 @@ Host ews
 	HostName remlnx.ews.uiuc.edu
 	User zxiao2
 
+Host linux1
+	HostName linux1.ews.illinois.edu
+	User zxiao2
+
+Host linux2
+	HostName linux2.ews.illinois.edu
+	User zxiao2
+
+Host linux3
+	HostName linux3.ews.illinois.edu
+	User zxiao2
+
+Host linux4
+	HostName linux4.ews.illinois.edu
+	User zxiao2
+
+Host linux5
+	HostName linux5.ews.illinois.edu
+	User zxiao2
+
+Host linux6
+	HostName linux6.ews.illinois.edu
+	User zxiao2
+
+Host linux7
+	HostName linux7.ews.illinois.edu
+	User zxiao2
+
 Host orange
 	HostName orange.csl.uiuc.edu
 	User iveney
+
+Host armory
+	HostName armory.csl.uiuc.edu
+	User csl408
+    IdentityFile /Users/iveney/.ssh/id_rsa
+
+Host o-xterm-*
+    User zxiao
+    IdentityFile /Users/iveney/.ssh/nvidia_rsa
+
+Host sc-xterm-*
+    User zxiao
+    IdentityFile /Users/iveney/.ssh/nvidia_rsa
