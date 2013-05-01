@@ -1,0 +1,23 @@
+# quick look from command line
+alias ql="qlmanage -p 2>/dev/null"
+
+# color diff
+alias diff='colordiff'
+
+# grep with color
+alias grep='grep --color=auto'
+
+alias psgrep='ps aux | grep '
+
+# open using EDITOR
+alias edit='$EDITOR'
+
+# reload oh-my-zsh
+alias omz='source ~/.zshrc'
+
+# gnu ls
+alias gls='gls --color'
+alias lx='gls -X'
+
+# use tor for ssh, the port 9050 should be changed to the SOCKS port
+alias ssh-tor='ssh -o "ProxyCommand nc -X 5 -x 127.0.0.1:9050 %h %p"'
