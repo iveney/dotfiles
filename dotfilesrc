@@ -1,2 +1,7 @@
 [dotfiles]
 packages = ['ssh']
+ignore = [
+    '.git',
+    '.gitignore',
+    'README.mkd',
+    '*.swp']
