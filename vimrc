@@ -247,8 +247,6 @@ set dictionary=/usr/share/dict/words
 
 " cpp tags
 set tags+=~/.vim/tags/cpp
-" cgal tags
-set tags+=~/.vim/tags/cgal
 
 " Tabular mapping
 " Align the text to `='
@@ -267,23 +265,3 @@ map <F5> :GundoToggle<CR>
 "let g:clang_complete_copen = 0
 "let g:clang_hl_errors = 0
 "let g:clang_snippets = 0
-"
-function! ConqueMan()
-   let cmd = &keywordprg . ' '
-   if cmd ==# 'man ' || cmd ==# 'man -s '
-       if v:count > 0
-           let cmd .= v:count . ' '
-       else
-           let cmd = 'man '
-       endif
-   endif
-   let cmd .= expand('<cword>')
-   execute 'ConqueTermSplit' cmd
-endfunction
-map K :<C-U>call ConqueMan()<CR>
-ounmap K
-
-" set ws and tap stop
-set ts=4
-set sw=4
-set expandtab
