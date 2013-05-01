@@ -1,0 +1,27 @@
+[user]
+	name = Zigang Xiao
+	email = iveney@gmail.com
+[core]
+	editor = /usr/bin/vim
+	excludesfile = /Users/iveney/.gitignore_global
+[color]
+	diff = auto
+[alias]
+	wdiff = diff --color-words
+	st = status
+	ci = commit
+	br = branch
+	co = checkout
+	df = diff
+	lg = log -p
+[github]
+	user = iveney
+	token = 114933d32687c5f3b206fd9c94c262d6
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[push]
+	default = simple
