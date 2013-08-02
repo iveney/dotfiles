@@ -43,6 +43,13 @@
 # std::vector<>
 #
 
+define size_vector
+  if $argc == 0
+    help pvector
+	end
+	print $arg0._M_impl._M_finish - $arg0._M_impl._M_start
+end
+
 define pvector
   if $argc == 0
     help pvector
@@ -91,7 +98,7 @@ define pvector
     printf "Vector size = %u\n", $size
     printf "Vector capacity = %u\n", $capacity
     printf "Element "
-    whatis $arg0._M_impl._M_start
+    whatis *($arg0._M_impl._M_start)
   end
 end
 
