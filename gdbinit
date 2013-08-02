@@ -1,1 +1,1 @@
-source .stl-views.gdb
+source ~/.stl-views.gdb
