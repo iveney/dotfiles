@@ -1,267 +1,225 @@
-" IMPORTANT: call pathogen at first to manage bundles
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
+" .vimrc
+set nocompatible                "Turn off compability mode with Vi, we don't need that anymore
+filetype off " required
 
-" Binding MEMO:
-" nmap: in normal mode
-" imap: in insert mode
-" cmap: in commandline mode
-" vmap: in visual
-" omap:operating pending
-" lmap: in all(above all)
-" [n|c|...]noremap : not allow recursive mapping
-"Set mapleader( replace <leader> to the string )
+execute pathogen#infect('base/{}')
+if isdirectory(expand("$HOME/.vim/custom/"))
+  execute pathogen#infect('custom/{}')
+  source $HOME/.vim/custom/vimrc
+endif
+execute pathogen#helptags()
 
-let mapleader=","
-
-" Sets the character encoding used inside Vim.
-set enc=utf-8
-" Sets the character encoding for the file of this buffer.
-set fenc=utf-8
-" a list of character encodings considered when starting to edit an existing
-" file.
-set fencs=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
-
-set nocompatible
-
-"自动检测文件类型打开缩进
-filetype on
-filetype plugin on
-filetype indent on
 syntax on
-syntax enable
-set hlsearch
+filetype plugin indent on
 
-" no highlight search
-map <F2> <ESC>:nohlsearch<CR>
-
-" map <F3> to toggle paste mode
-set pastetoggle=<F3>
-
-" when `paste' is set, filetype indent and autoindent don't work
-nnoremap <F4> :set paste<CR>"*p:set nopaste<CR>
-nnoremap <F5> :set paste<CR>"+p:set nopaste<CR>
-inoremap <F4> <ESC>:set paste<CR>"*p:set nopaste<CR>i
-inoremap <F5> <ESC>:set paste<CR>"+p:set nopaste<CR>i
-
-" Check Platform
-function! MySys()
-  if has("win32")
-    return "windows"
-  else
-    return "linux"
-  endif
-endfunction
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" latex-suite plugin
-" REQUIRED. This makes vim invoke Latex-Suite when you open a tex file.
-filetype plugin on
-
-" IMPORTANT: win32 users will need to have 'shellslash' set so that latex
-" can be called correctly.
-set shellslash
-
-" IMPORTANT: grep will sometimes skip displaying the file name if you
-" search in a singe file. This will confuse Latex-Suite. Set your grep
-" program to always generate a file-name.
-set grepprg=grep\ -nH\ $*
-
-" OPTIONAL: This enables automatic indentation as you type.
-filetype indent on
-
-" OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
-" 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
-" The following changes the default filetype back to 'tex':
-let g:tex_flavor='latex'
-
-function! RemoteLaTeX()
-    let g:Tex_ViewRule_dvi="xdvi -editor 'gvim --servername \"".expand("%:p")
-        \."\" --remote-silent'"
-    augr remotelatex
-    au!
-    augr END
-endfunction
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" open document and put cursor to the last editing position
-autocmd BufReadPost * if line("'\"") && line("'\"") <= line("$") | exe "normal`\"" | endif
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" gui settings
-
-if has("gui")
-	set guifont=Monaco:h12
-	colorscheme evening
-
-	" maximize window
-	set lines=999 
-	set columns=999
-	set go-=L
-else
-	colorscheme desert
+" check for ctags folder, if not exist extract our ctags binary
+if !isdirectory(expand("$HOME/.vim/binary/ctags/"))
+	let ctags_bottle_dir =  expand("$HOME/.vim/binary/")
+	let ctags_bottle_file = expand("$HOME/.vim/binary/ctags-5.8.mountain_lion.bottle.tar.gz")
+	execute "cd ".ctags_bottle_dir
+	execute "!tar xfv ".ctags_bottle_file
 endif
 
-let Tlist_Show_One_File=1
-let Tlist_Exit_OnlyWindow=1
+set noerrorbells                " No beeps
+set number                      " Show line numbers
+set backspace=indent,eol,start  " Makes backspace key more powerful.
+set showcmd                     " Show me what I'm typing
+set showmode                    " Show current mode.
 
-set number
-" set the line number color to dark cyan
-hi LineNr ctermfg=darkcyan ctermbg=black
+set noswapfile                  " Don't use swapfile
+set nobackup            		" Don't create annoying backup files
+set splitright                  " Split vertical windows right to the current windows
+set splitbelow                  " Split horizontal windows below to the current windows
+set encoding=utf-8              " Set default encoding to UTF-8
+set autowrite                   " Automatically save before :next, :make etc.
+set autoread                    " Automatically reread changed files without asking me anything
+set laststatus=2
 
-" miniBufExplorer
-let g:miniBufExplMapWindowNavVim = 1
-let g:miniBufExplMapWindowNavArrows = 1
-let g:miniBufExplMapCTabSwitchBufs = 1
-let g:miniBufExplModSelTarget = 1 
+set fileformats=unix,dos,mac    " Prefer Unix over Windows over OS 9 formats
 
-" combine project window and taglist window
-let g:winManagerWindowLayout='FileExplorer|TagList'
-nmap <leader>wm :WMToggle<cr>
+set showmatch                   " Do not show matching brackets by flickering
+set incsearch                   " Shows the match while typing
+set hlsearch                    " Highlight found searches
+set ignorecase                  " Search case insensitive...
+set smartcase                   " ... but not when search pattern contains upper case characters
 
-" quick fix plugin
-nmap <F6> :cn<cr>
-nmap <F7> :cp<cr>
+set switchbuf=usetab,newtab     " open new buffers always in new tabs
 
-" auto fold 
-set completeopt=longest,menu
-set fdm=syntax
+" ----------------------------------------------"
+" MacVim modifications (color, shortcuts, etc.. "
+" ----------------------------------------------"
+"http://stackoverflow.com/questions/14802689/macvim-wont-load-specific-color-scheme-by-default
+let macvim_skip_colorscheme=1
+let g:molokai_original=1
+colorscheme molokai
+highlight SignColumn guibg=#272822   
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" map buffer operation shortcuts
-imap <M-1> <C-O>:hide buffer 1<cr>
-imap <M-2> <C-O>:hide buffer 2<cr>
-imap <M-3> <C-O>:hide buffer 3<cr>
-imap <M-4> <C-O>:hide buffer 4<cr>
-imap <M-5> <C-O>:hide buffer 5<cr>
-imap <M-6> <C-O>:hide buffer 6<cr>
-imap <M-7> <C-O>:hide buffer 7<cr>
-imap <M-8> <C-O>:hide buffer 8<cr>
-imap <M-9> <C-O>:hide buffer 9<cr>
-nmap <M-1> :hide buffer 1<cr>
-nmap <M-2> :hide buffer 2<cr>
-nmap <M-3> :hide buffer 3<cr>
-nmap <M-4> :hide buffer 4<cr>
-nmap <M-5> :hide buffer 5<cr>
-nmap <M-6> :hide buffer 6<cr>
-nmap <M-7> :hide buffer 7<cr>
-nmap <M-8> :hide buffer 8<cr>
-nmap <M-9> :hide buffer 9<cr>
-imap <M-`> <C-O>:hide bnext<cr>
-nmap <M-`> :hide bnext<cr>
-imap <M-~> <C-O>:hide bprev<cr>
-nmap <M-~> :hide bprev<cr>
+if has("gui_macvim")
+  " No toolbars, menu or scrollbars in the GUI
+  set guifont=Source\ Code\ Pro\ for\ Powerline:h13 "TODO: include these fonts by default
+  set clipboard+=unnamed
+  set vb t_vb=
+  set guioptions-=m  "no menu
+  set guioptions-=T  "no toolbar
+  set guioptions-=l
+  set guioptions-=L
+  set guioptions-=r  "no scrollbar
+  set guioptions-=R
 
-imap 1 <C-O>:hide buffer 1<cr>
-imap 2 <C-O>:hide buffer 2<cr>
-imap 3 <C-O>:hide buffer 3<cr>
-imap 4 <C-O>:hide buffer 4<cr>
-imap 5 <C-O>:hide buffer 5<cr>
-imap 6 <C-O>:hide buffer 6<cr>
-imap 7 <C-O>:hide buffer 7<cr>
-imap 8 <C-O>:hide buffer 8<cr>
-imap 9 <C-O>:hide buffer 9<cr>
-nmap 1 :hide buffer 1<cr>
-nmap 2 :hide buffer 2<cr>
-nmap 3 :hide buffer 3<cr>
-nmap 4 :hide buffer 4<cr>
-nmap 5 :hide buffer 5<cr>
-nmap 6 :hide buffer 6<cr>
-nmap 7 :hide buffer 7<cr>
-nmap 8 :hide buffer 8<cr>
-nmap 9 :hide buffer 9<cr>
-imap <M-`> <C-O>:hide bnext<cr>
-nmap <M-`> :hide bnext<cr>
-imap <M-~> <C-O>:hide bprev<cr>
-nmap <M-~> :hide bprev<cr>
+  " Open ctrlp with cmd+p
+  let g:ctrlp_map = '<D-p>'
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+  " Open goto symbol on current buffer
+  nmap <D-r> :MyCtrlPTag<cr>
+  imap <D-r> <esc>:MyCtrlPTag<cr>
 
-"Call ctags to generate tags for c++ source files
-map <C-F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+  " Open goto symbol on all buffers
+  nmap <D-R> :CtrlPBufTagAll<cr>
+  imap <D-R> <esc>:CtrlPBufTagAll<cr>
 
-"Fast reloading of the .vimrc
-map <silent> <leader>ss :source ~/.vimrc<cr>
-"Fast editing of .vimrc
-map <silent> <leader>ee :e ~/.vimrc<cr>
-"When .vimrc is edited, reload it
-autocmd! bufwritepost .vimrc source ~/.vimrc 
+  " Open goto file
+  nmap <D-t> :CtrlP<cr>
+  imap <D-t> <esc>:CtrlP<cr>
 
-"s:查找C语言符号，即查找函数名、宏、枚举值等出现的地方 
-nmap <C-,>s :cs find s <C-R>=expand("<cword>")<CR><CR>
-"g:查找函数、宏、枚举等定义的位置，类似ctags所提供的功能 
-nmap <C-,>g :cs find g <C-R>=expand("<cword>")<CR><CR>
-"c: 查找调用本函数的函数 
-nmap <C-,>c :cs find c <C-R>=expand("<cword>")<CR><CR>
-"t: 查找指定的字符串 
-nmap <C-,>t :cs find t <C-R>=expand("<cword>")<CR><CR>
-"e: 查找egrep模式，相当于egrep功能
-nmap <C-,>e :cs find e <C-R>=expand("<cword>")<CR><CR>
-"f: 查找并打开文件，类似vim的find功能 
-nmap <C-,>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
-"i: 查找包含本文件的文件 
-nmap <C-,>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-"d: 查找本函数调用的函数 
-nmap <C-,>d :cs find d <C-R>=expand("<cword>")<CR><CR>
+  " Comment lines with cmd+/
+  map <D-/> :TComment<cr>
+  vmap <D-/> :TComment<cr>gv
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" cscope setting
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if has("cscope")
-  set csprg=/usr/local/bin/cscope
-  set csto=1
-  set cst
-  set nocsverb
-  " add any database in current directory
-  if filereadable("cscope.out")
-      cs add cscope.out
-  endif
-  set csverb
+  " Indent lines with cmd+[ and cmd+]
+  nmap <D-]> >>
+  nmap <D-[> <<
+  vmap <D-[> <gv
+  vmap <D-]> >gv
+
+  "Open sidebar with cmd+k
+  map <D-k> :NERDTreeTabsToggle<CR>
+
+  " This mapping makes Ctrl-Tab switch between tabs. 
+  " Ctrl-Shift-Tab goes the other way.
+  noremap <C-Tab> :tabnext<CR>
+  noremap <C-S-Tab> :tabprev<CR>
+
+  " switch between tabs with cmd+1, cmd+2,..."
+  map <D-1> 1gt
+  map <D-2> 2gt
+  map <D-3> 3gt
+  map <D-4> 4gt
+  map <D-5> 5gt
+  map <D-6> 6gt
+  map <D-7> 7gt
+  map <D-8> 8gt
+  map <D-9> 9gt
+
+  " until we have default MacVim shortcuts this is the only way to use it in
+  " insert mode
+  imap <D-1> <esc>1gt
+  imap <D-2> <esc>2gt
+  imap <D-3> <esc>3gt
+  imap <D-4> <esc>4gt
+  imap <D-5> <esc>5gt
+  imap <D-6> <esc>6gt
+  imap <D-7> <esc>7gt
+  imap <D-8> <esc>8gt
+  imap <D-9> <esc>9gt
+
+  " Select text whit shift
+  let macvim_hig_shift_movement = 1
+
+  " Stop completion with enter, in addition to default ctrl+y
+  imap <expr> <CR> pumvisible() ? "\<c-y>" : "<Plug>delimitMateCR"
+
 endif
 
-"MEMO: the convinient command to gen cscope file
-"find . -name "*.h" -o -name "*.c" -o -name "*.cpp" > cscope.files
-"cscope -bkq -i cscope.files
-"ctags -R
+" ----------------------------------------- "
+" Plugin configs 			    			"
+" ----------------------------------------- "
 
-" quick fix option for make,cn,cp
-autocmd FileType c,cpp  map <buffer> <leader><space> :w<cr>:make<cr>
-nmap <leader>cn :cn<cr>
-nmap <leader>cp :cp<cr>
-nmap <leader>cw :cw 10<cr> 
+let g:ctrlp_cmd = 'CtrlPMixed'			" search anything (in files, buffers and MRU files at the same time.)
+let g:ctrlp_working_path_mode = 'ra'	" search for nearest ancestor like .git, .hg, and the directory of the current file
+let g:ctrlp_match_window_bottom = 0		" show the match window at the top of the screen
+let g:ctrlp_max_height = 10				" maxiumum height of match window
+let g:ctrlp_switch_buffer = 'et'		" jump to a file if it's open already
+let g:ctrlp_use_caching = 1				" enable caching
+let g:ctrlp_clear_cache_on_exit=0  		" speed up by not removing clearing cache evertime
+let g:ctrlp_mruf_max = 250 				" number of recently opened files
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn|build)$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
+  \ }
 
-" switch between header and source file
-map <leader>sw :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
+" I don't like subvim changing default behaviro of ctrlp: <cr> should open in
+" current tab. The following maps it back (switching e and t):
+" https://github.com/kien/ctrlp.vim/issues/160
+func! MyPrtMappings()
+    let g:ctrlp_prompt_mappings = {
+        \ 'AcceptSelection("e")': ['<cr>', '<2-LeftMouse>'],
+        \ 'AcceptSelection("t")': ['<c-t>'],
+        \ }
+endfunc
 
-" mark those exceed 80 columns
-highlight OverLength ctermbg=darkred ctermfg=white guibg=#FFD9D9
-match OverLength /\%81v.*/
-nmap <leader>mm :match OverLength /\%81v.*/<cr>
-nmap <leader>mc :match OverLength //<cr>
+func! MyCtrlPTag()
+    let g:ctrlp_prompt_mappings = {
+        \ 'AcceptSelection("e")': ['<cr>', '<2-LeftMouse>'],
+        \ 'AcceptSelection("t")': ['<c-t>'],
+        \ }
+    CtrlPBufTag
+endfunc
 
-" nmap <leader>gdb :run! macros/gdb_mappings.vim<CR>
+let g:ctrlp_buffer_func = { 'exit': 'MyPrtMappings' }
+com! MyCtrlPTag call MyCtrlPTag()
 
-" dictionary
-set dictionary=/usr/share/dict/words
+" TODO: add javascript and some other languages who doesn't have ctags support
+" coffee: https://gist.github.com/michaelglass/5210282
+" go: http://stackoverflow.com/a/8236826/462233 
+" objc:  http://www.gregsexton.org/2011/04/objective-c-exuberant-ctags-regex/
+" rust: https://github.com/mozilla/rust/blob/master/src/etc/ctags.rust
+let g:ctrlp_buftag_types = {
+\ 'go'     	   : '--language-force=go --golang-types=ftv',
+\ 'coffee'     : '--language-force=coffee --coffee-types=cmfvf',
+\ 'markdown'   : '--language-force=markdown --markdown-types=hik',
+\ 'objc'       : '--language-force=objc --objc-types=mpci',
+\ 'rc'         : '--language-force=rust --rust-types=fTm'
+\ }
 
-" cpp tags
-set tags+=~/.vim/tags/cpp
 
-" Tabular mapping
-" Align the text to `='
-map <leader>t= :Tab/=<cr>
+let g:Powerline_symbols = 'fancy'
 
-" NERDTree mapping
-map <F3> :NERDTreeToggle<CR>
+let g:ycm_autoclose_preview_window_after_completion = 1
 
-" map gundo
-map <F5> :GundoToggle<CR>
+let g:session_autosave = 'yes'
+let g:session_autoload = 'yes'
+let g:session_default_to_last = 1
 
-"let g:clang_use_library = 1
-"let g:clang_library_path = '/usr/local/Cellar/llvm/2.9/lib'
-"let g:clang_use_snipmate = 1
-"let g:clang_complete_auto = 1
-"let g:clang_complete_copen = 0
-"let g:clang_hl_errors = 0
-"let g:clang_snippets = 0
+"create line break when pressing enter
+let g:delimitMate_expand_cr = 1
+let g:delimitMate_expand_space = 1
+
+let g:nerdtree_tabs_open_on_gui_startup = 0
+
+let g:multi_cursor_use_default_mapping = 0
+let g:multi_cursor_next_key = '<D-d>'
+let g:multi_cursor_prev_key = '<D-u>'
+let g:multi_cursor_skip_key = '<D-k>' "until we got multiple keys support
+let g:multi_cursor_quit_key = '<Esc>'
+
+function! g:UltiSnips_Complete()
+    call UltiSnips_ExpandSnippet()
+    if g:ulti_expand_res == 0
+        if pumvisible()
+            return "\<C-n>"
+        else
+            call UltiSnips_JumpForwards()
+            if g:ulti_jump_forwards_res == 0
+               return "\<TAB>"
+            endif
+        endif
+    endif
+    return ""
+endfunction
+
+au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsListSnippets="<c-e>"
+let g:UltiSnipsSnippetDirectories = ["UltiSnips", "ultisnips-snippets"]
+

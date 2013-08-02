@@ -17,6 +17,9 @@ Host orange
 	HostName orange.csl.illinois.edu
 	User iveney
 
+Host peabody
+	User zxiao2
+
 Host armory
 	HostName armory.csl.illinois.edu
 	User csl408

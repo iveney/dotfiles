@@ -58,7 +58,10 @@ source $HOME/.aliases
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
 
 # environment variables here
-export EDITOR=subl
+export EDITOR=vimconsole
+export GIT_EDITOR=$EDITOR
+export VISUAL=subl
+
 export GROOVY_HOME=/usr/local/Cellar/groovy/2.1.1/libexec
 
 # Less Colors for Man Pages
@@ -72,3 +75,10 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 
 # cdargs
 source /usr/local/etc/bash_completion.d/cdargs-bash.sh
+
+# sublime library path
+export SUBLIME_LIBRARY=/Users/iveney/Library/Application\ Support/Sublime\ Text\ 3
+
+# fish shell like syntax highlight
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+

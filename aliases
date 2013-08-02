@@ -21,3 +21,10 @@ alias lx='gls -X'
 
 # use tor for ssh, the port 9050 should be changed to the SOCKS port
 alias ssh-tor='ssh -o "ProxyCommand nc -X 5 -x 127.0.0.1:9050 %h %p"'
+
+# Fix rake issue: https://github.com/robbyrussell/oh-my-zsh/issues/433
+alias rake='noglob rake'
+
+# For subvim: does not work with console version
+alias vim=vimconsole
+alias vi=vim
