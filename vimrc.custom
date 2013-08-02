@@ -7,6 +7,34 @@
 " lmap: in all(above all)
 " [n|c|...]noremap : not allow recursive mapping
 "Set mapleader( replace <leader> to the string )
+ 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Vundle setting (package management)
+set nocompatible               " be iMproved
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+Bundle 'gmarik/vundle'
+
+" Bundles
+
+" goes to a position quickly
+Bundle 'Lokaltog/vim-easymotion'
+" Most Recently Used
+Bundle 'mru.vim'
+" read in local vim file for project
+Bundle 'local_vimrc.vim'
+" Ack-grep
+Bundle 'mileszs/ack.vim'
+" Google C++ coding style
+Bundle 'google.vim'
+" C++11 Highlighting
+Bundle 'octol/vim-cpp-enhanced-highlight'
+" Syntax checking plugin via external prog
+Bundle 'scrooloose/syntastic'
+" Cscope macros and mappings
+Bundle 'iveney/cscope_maps'
+Bundle 'brookhong/cscope.vim'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Basic settings
@@ -70,33 +98,6 @@ let c_no_curly_error=1
 " auto fold 
 "set completeopt=longest,menu
 "set fdm=syntax
- 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Vundle setting (package management)
-filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-Bundle 'gmarik/vundle'
-
-" Bundles
-
-" goes to a position quickly
-Bundle 'Lokaltog/vim-easymotion'
-" Most Recently Used
-Bundle 'mru.vim'
-" read in local vim file for project
-Bundle 'local_vimrc.vim'
-" Ack-grep
-Bundle 'mileszs/ack.vim'
-" Google C++ coding style
-Bundle 'google.vim'
-" C++11 Highlighting
-Bundle 'octol/vim-cpp-enhanced-highlight'
-" Syntax checking plugin via external prog
-Bundle 'scrooloose/syntastic'
-" Cscope macros and mappings
-Bundle 'iveney/cscope_maps'
-Bundle 'brookhong/cscope.vim'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Environment settings
