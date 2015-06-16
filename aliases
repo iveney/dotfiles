@@ -28,3 +28,16 @@ alias rake='noglob rake'
 # For subvim: does not work with console version
 alias vim=vimconsole
 alias vi=vim
+
+# ssh forwarding using Armory
+alias fw='ssh -f -N -C -D 1080 armory'
+
+# youtube download
+alias yd='youtube-dl -f 18 -o "%(title)s.%(ext)s" --restrict-filenames'
+
+#alias findexec='find . -type f -perm +001'
+# manually exclude text files
+alias findexec='find . -type f -perm +001 -and -not -name "*.txt"'
+
+alias hideicons='defaults write com.apple.finder CreateDesktop -bool false && killall Finder'
+alias showicons='defaults write com.apple.finder CreateDesktop -bool true && killall Finder'

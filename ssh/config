@@ -1,3 +1,8 @@
+Host coursera
+    HostName ec2-54-197-144-94.compute-1.amazonaws.com
+    User zxiao2
+    IdentityFile /Users/iveney/.ssh/zxiao2.pem
+
 Host ncsa
 	HostName ac.ncsa.uiuc.edu
 	User tingyu1
@@ -20,10 +25,23 @@ Host orange
 Host peabody
 	User zxiao2
 
+Host ews-web
+    HostName web.engr.illinois.edu
+    User zxiao2
+    IdentityFile /Users/iveney/.ssh/id_rsa
+
 Host armory
 	HostName armory.csl.illinois.edu
 	User csl408
     IdentityFile /Users/iveney/.ssh/id_rsa
+
+Host bitbucket
+    Hostname bitbucket.org
+    User git
+    IdentityFile /Users/iveney/.ssh/mm_rsa
+
+Host linux-*
+    User zxiao2
 
 Host o-xterm-*
     User zxiao

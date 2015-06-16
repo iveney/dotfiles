@@ -64,6 +64,7 @@ set ignorecase
 set smartcase
 
 set number
+
 " set the line number color to dark cyan
 hi LineNr ctermfg=darkcyan ctermbg=black
 
@@ -89,10 +90,10 @@ set dictionary=/usr/share/dict/words
 " STL tags
 set tags+=~/.tags/cpp
 
-" set current filetype to be bash
+" Bash: set current filetype to be bash
 nmap <silent> <leader>b :let g:is_bash=1<cr> :setf sh<cr> 
 
-" Don't mark {} inside () as error (for c++11)
+" Cpp: Don't mark {} inside () as error (for c++11)
 let c_no_curly_error=1
 
 " auto fold 
@@ -122,33 +123,24 @@ if has("gui")
 	set go-=L
 endif
 
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " open document and put cursor to the last editing position
-autocmd BufReadPost * if line("'\"") && line("'\"") <= line("$") | exe "normal`\"" | endif
+" autocmd BufReadPost * if line("'\"") && line("'\"") <= line("$") | exe "normal`\"" | endif
 
 let Tlist_Show_One_File=1
 let Tlist_Exit_OnlyWindow=1
 
-" miniBufExplorer
+" MiniBufExplorer:
 let g:miniBufExplMapWindowNavVim = 1
 let g:miniBufExplMapWindowNavArrows = 1
 let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1 
 
-" combine project window and taglist window
-let g:winManagerWindowLayout='FileExplorer|TagList'
-nmap <leader>wm :WMToggle<cr>
-
-" quick fix plugin
-nmap <F6> :cn<cr>
-nmap <F7> :cp<cr>
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ctags and cscope setting
 
-"Call ctags to generate tags for c++ source files
+" Cscope: Call ctags to generate tags for c++ source files
 map <C-F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 
 function! GenTags() 
@@ -159,19 +151,36 @@ endfunction
 
 nmap <D-'> :call GenTags()<CR><CR>
 
-" quick fix option for make,cn,cp
+" Quick fix option for make,cn,cp
 autocmd FileType c,cpp  map <buffer> <leader><space> :w<cr>:make<cr>
 nmap <leader>cn :cn<cr>
 nmap <leader>cp :cp<cr>
 nmap <leader>cw :cw 10<cr> 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Tabular mapping
+" Tabular:
 " Align the text to `='
 map <leader>t= :Tab/=<cr>
 
-" map gundo
+" Gundo:
 map <F5> :GundoToggle<CR>
 
-" Use clang++ as syntax checker for Syntastic
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Override some subvim default settings
+"
+" Syntastic: Use clang++ as syntax checker for Syntastic
 let g:syntastic_cpp_compiler = 'clang++'
+
+" YCM: no need to confirm loading
+let g:ycm_confirm_extra_conf = 0
+" YCM: use eclim
+let g:EclimCompletionMethod = 'omnifunc'
+
+" Indent: personal preference
+set ts=4 sw=4
+set expandtab
+
+" UltiSnip
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"

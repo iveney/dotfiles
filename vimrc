@@ -148,7 +148,7 @@ let g:ctrlp_custom_ignore = {
   \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
   \ }
 
-" I don't like subvim changing default behaviro of ctrlp: <cr> should open in
+" I don't like subvim changing default behavior of ctrlp: <cr> should open in
 " current tab. The following maps it back (switching e and t):
 " https://github.com/kien/ctrlp.vim/issues/160
 func! MyPrtMappings()
@@ -185,7 +185,9 @@ let g:ctrlp_buftag_types = {
 
 let g:Powerline_symbols = 'fancy'
 
-let g:ycm_autoclose_preview_window_after_completion = 1
+" Don't close completion window after selection, but after insertion
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_autoclose_preview_window_after_completion = 0
 
 let g:session_autosave = 'yes'
 let g:session_autoload = 'yes'

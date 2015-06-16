@@ -1,6 +1,3 @@
-# homebrew bins, personal bins
-export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
-
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
@@ -37,13 +34,12 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git osx autojump brew rvm)
 
+# Ignore case in autojump
+export AUTOJUMP_IGNORE_CASE=1
+
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-
-# For python 2.7.3 from Homebrew
-# see this:  https://github.com/mxcl/homebrew/wiki/Homebrew-and-Python
-export PATH=/usr/local/share/python:$PATH
 
 # node.js
 export PATH=/usr/local/share/npm/bin:$PATH
@@ -58,11 +54,12 @@ source $HOME/.aliases
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
 
 # environment variables here
-export EDITOR=vimconsole
-export GIT_EDITOR=$EDITOR
+#export EDITOR=vimconsole
+export EDITOR=subl
+export GIT_EDITOR=vimconsole
 export VISUAL=subl
 
-export GROOVY_HOME=/usr/local/Cellar/groovy/2.1.1/libexec
+export ECLIPSE_HOME=/Applications/eclipse
 
 # Less Colors for Man Pages
 export LESS_TERMCAP_mb=$'\E[01;31m'
@@ -73,6 +70,10 @@ export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
+# Highlight source code for less
+export LESSOPEN="| /usr/local/bin/src-hilite-lesspipe.sh %s"
+export LESS=' -R '
+
 # cdargs
 source /usr/local/etc/bash_completion.d/cdargs-bash.sh
 
@@ -82,3 +83,8 @@ export SUBLIME_LIBRARY=/Users/iveney/Library/Application\ Support/Sublime\ Text\
 # fish shell like syntax highlight
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# for pkgconfig and cairo
+export PKG_CONFIG_PATH=/opt/X11/lib/pkgconfig
+
+# ccache
+export PATH=/usr/local/opt/ccache/libexec:$PATH
