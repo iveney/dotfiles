@@ -16,6 +16,7 @@ hotkey.bind(mash, "c", function() tiling.cyclelayout() end)
 hotkey.bind(mash, ".", function() tiling.cycle(1) end)
 hotkey.bind(mash, ",", function() tiling.cycle(-1) end)
 hotkey.bind(mash, "space", function() tiling.promote() end)
+hotkey.bind(mash, "f", function() tiling.togglefloat(center) end)
 
 -- reload config
 
@@ -44,7 +45,7 @@ local resize = function(dx, dy)
 		  frame.h = frame.h + dy
 		  win:setframe(frame)
 	end
-end	
+end
 
 -- move the window
 hotkey.bind(mash, "Left", move(-delta, 0))
@@ -86,3 +87,8 @@ hotkey.bind(mash, 'l', gridset(1, 0, 1, 2)) -- right half
 hotkey.bind(mash, 'i', gridset(0, 0, 2, 1)) -- up half
 hotkey.bind(mash, 'k', gridset(0, 1, 2, 1)) -- bottom half
 hotkey.bind(mash, 'm', grid.maximize_window)-- maximize
+
+hotkey.bind(mash, '1', gridset(0, 0, 1, 1)) -- upper left
+hotkey.bind(mash, '2', gridset(1, 0, 1, 1)) -- upper right
+hotkey.bind(mash, '3', gridset(0, 1, 1, 1)) -- lower left
+hotkey.bind(mash, '4', gridset(1, 1, 1, 1)) -- lower right

@@ -50,3 +50,6 @@ Host o-xterm-*
 Host sc-xterm-*
     User zxiao
     IdentityFile /Users/iveney/.ssh/nvidia_rsa
+
+Host dev
+    HostName dev2146.prn2.facebook.com

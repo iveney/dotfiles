@@ -26,7 +26,6 @@ alias ssh-tor='ssh -o "ProxyCommand nc -X 5 -x 127.0.0.1:9050 %h %p"'
 alias rake='noglob rake'
 
 # For subvim: does not work with console version
-alias vim=vimconsole
 alias vi=vim
 
 # ssh forwarding using Armory
