@@ -37,8 +37,10 @@ Host armory
 
 Host bitbucket
     Hostname bitbucket.org
-    User git
-    IdentityFile /Users/iveney/.ssh/mm_rsa
+    User iveney
+    IdentityFile /Users/ivanx/.ssh/github_rsa
+    PreferredAuthentications publickey
+    IdentitiesOnly yes
 
 Host linux-*
     User zxiao2
@@ -52,4 +54,10 @@ Host sc-xterm-*
     IdentityFile /Users/iveney/.ssh/nvidia_rsa
 
 Host dev
-    HostName dev2146.prn2.facebook.com
+    HostName dev10926.prn2.facebook.com
+
+Host devbig
+    HostName devbig607.prn1.facebook.com
+
+Host dev*.facebook.com
+    RemoteForward 8377 localhost:8377

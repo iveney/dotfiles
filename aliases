@@ -40,3 +40,6 @@ alias findexec='find . -type f -perm +001 -and -not -name "*.txt"'
 
 alias hideicons='defaults write com.apple.finder CreateDesktop -bool false && killall Finder'
 alias showicons='defaults write com.apple.finder CreateDesktop -bool true && killall Finder'
+
+# git-smart
+alias gsl='git smart-log'
