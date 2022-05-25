@@ -35,13 +35,6 @@ Host armory
 	User csl408
     IdentityFile /Users/iveney/.ssh/id_rsa
 
-Host bitbucket
-    Hostname bitbucket.org
-    User iveney
-    IdentityFile /Users/ivanx/.ssh/github_rsa
-    PreferredAuthentications publickey
-    IdentitiesOnly yes
-
 Host linux-*
     User zxiao2
 
@@ -53,11 +46,8 @@ Host sc-xterm-*
     User zxiao
     IdentityFile /Users/iveney/.ssh/nvidia_rsa
 
-Host dev
-    HostName dev10926.prn2.facebook.com
-
-Host devbig
-    HostName devbig607.prn1.facebook.com
+Host devvm
+    HostName devvm2543.prn0.facebook.com
 
 Host dev*.facebook.com
     RemoteForward 8377 localhost:8377

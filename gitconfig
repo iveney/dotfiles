@@ -1,6 +1,6 @@
 [user]
 	name = Ivan Xiao
-	email = ivanx@fb.com
+	email = iveney@gmail.com
 [core]
 	excludesfile = /Users/ivanx/.gitignore_global
 [color]
@@ -26,3 +26,5 @@
 	default = simple
 [credential]
 	helper = osxkeychain
+[commit]
+	template = /Users/ivanx/.stCommitMsg

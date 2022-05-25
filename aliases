@@ -43,3 +43,11 @@ alias showicons='defaults write com.apple.finder CreateDesktop -bool true && kil
 
 # git-smart
 alias gsl='git smart-log'
+
+# rsync localfiles
+alias sync-www-scripts='rsync -avzhe ssh /Users/ivanx/.ondemand/homedir/www/ ivanx@devvm2543.prn0.facebook.com:~/www/'
+
+# url encode and decode
+# https://unix.stackexchange.com/a/159254/6946
+alias urlencode='python3 -c "import sys, urllib.parse as ul; print (ul.quote_plus(sys.argv[1]))"'
+alias urldecode='python3 -c "import sys, urllib.parse as ul; print(ul.unquote_plus(sys.argv[1]))"'
