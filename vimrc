@@ -12,9 +12,8 @@
 " Vundle setting (package management)
 set nocompatible               " be iMproved
 filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-Bundle 'gmarik/vundle'
+set rtp+=~/.vim/bundle/Vundle.vim/
+call vundle#begin()
 
 " Bundles
 
@@ -37,6 +36,8 @@ Bundle 'scrooloose/syntastic'
 " Cscope macros and mappings
 Bundle 'iveney/cscope_maps'
 Bundle 'brookhong/cscope.vim'
+
+call vundle#end()            " required
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Basic settings
