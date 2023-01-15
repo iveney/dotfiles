@@ -1,0 +1,53 @@
+# quick look from command line
+alias ql="qlmanage -p 2>/dev/null"
+
+# color diff
+alias diff='colordiff'
+
+# grep with color
+alias grep='grep --color=auto'
+
+alias psgrep='ps aux | grep '
+
+# open using EDITOR
+alias edit='$EDITOR'
+
+# reload oh-my-zsh
+alias omz='source ~/.zshrc'
+
+# gnu ls
+alias gls='gls --color'
+alias lx='gls -X'
+
+# use tor for ssh, the port 9050 should be changed to the SOCKS port
+alias ssh-tor='ssh -o "ProxyCommand nc -X 5 -x 127.0.0.1:9050 %h %p"'
+
+# Fix rake issue: https://github.com/robbyrussell/oh-my-zsh/issues/433
+alias rake='noglob rake'
+
+# For subvim: does not work with console version
+alias vi=vim
+
+# ssh forwarding using Armory
+alias fw='ssh -f -N -C -D 1080 armory'
+
+# youtube download
+alias yd='youtube-dl -f 18 -o "%(title)s.%(ext)s" --restrict-filenames'
+
+#alias findexec='find . -type f -perm +001'
+# manually exclude text files
+alias findexec='find . -type f -perm +001 -and -not -name "*.txt"'
+
+alias hideicons='defaults write com.apple.finder CreateDesktop -bool false && killall Finder'
+alias showicons='defaults write com.apple.finder CreateDesktop -bool true && killall Finder'
+
+# git-smart
+alias gsl='git smart-log'
+
+# rsync localfiles
+alias sync-www-scripts='rsync -avzhe ssh /Users/ivanx/.ondemand/homedir/www/ ivanx@devvm2543.prn0.facebook.com:~/www/'
+
+# url encode and decode
+# https://unix.stackexchange.com/a/159254/6946
+alias urlencode='python3 -c "import sys, urllib.parse as ul; print (ul.quote_plus(sys.argv[1]))"'
+alias urldecode='python3 -c "import sys, urllib.parse as ul; print(ul.unquote_plus(sys.argv[1]))"'
