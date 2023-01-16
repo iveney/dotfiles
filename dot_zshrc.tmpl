@@ -70,7 +70,14 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
+
+# Unfortunately, homebrew is a custom installation at this laptop, so need to load manually
+# and cannot specify as plugin in oh-my-zsh
+{{- if eq .chezmoi.hostname "ivanx-mbp" }}
+plugins=(git zsh-syntax-highlighting)
+{{- else }}
 plugins=(git zsh-syntax-highlighting autojump)
+{{- end }}
 
 source $ZSH/oh-my-zsh.sh
 
@@ -92,9 +99,6 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="subl ~/.zshrc"
 # alias ohmyzsh="subl ~/.oh-my-zsh"
-
-# Autojump
-# [ -f /Users/ivanx/homebrew/etc/profile.d/autojump.sh ] && . /Users/ivanx/homebrew/etc/profile.d/autojump.sh
 
 # Less Colors for Man Pages
 export LESS_TERMCAP_mb=$'\E[01;31m'
@@ -136,5 +140,7 @@ fi
 {{ if eq .chezmoi.os "darwin" -}}
 # Homebrew path
 export PATH="$HOME/homebrew/bin:$HOME/homebrew/sbin:$PATH"
+# Autojump, required for Homebrew in Mac
+[ -f /Users/ivanx/homebrew/etc/profile.d/autojump.sh ] && . /Users/ivanx/homebrew/etc/profile.d/autojump.sh
 {{ end -}}
 
