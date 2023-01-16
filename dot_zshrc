@@ -81,13 +81,6 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -97,15 +90,8 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-alias zshconfig="subl ~/.zshrc"
+# alias zshconfig="subl ~/.zshrc"
 # alias ohmyzsh="subl ~/.oh-my-zsh"
-
-export PATH="$HOME/homebrew/bin:$HOME/homebrew/sbin:$PATH"
-
-# Editors
-export EDITOR=subl
-export GIT_EDITOR=vimconsole
-export VISUAL=subl
 
 # Autojump
 [ -f /Users/ivanx/homebrew/etc/profile.d/autojump.sh ] && . /Users/ivanx/homebrew/etc/profile.d/autojump.sh
@@ -123,4 +109,15 @@ export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
-export HOMEBREW_GITHUB_API_TOKEN=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
+# Machine specific configuration
+
+# Homebrew path
+export PATH="$HOME/homebrew/bin:$HOME/homebrew/sbin:$PATH"
+
+# Preferred editor for local and remote sessions
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='subl'
+fi
+export VISUAL=subl
