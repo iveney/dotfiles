@@ -133,8 +133,8 @@ else
   {{- end }}
 fi
 
-# Homebrew path
 {{ if eq .chezmoi.os "darwin" -}}
+# Homebrew path
 export PATH="$HOME/homebrew/bin:$HOME/homebrew/sbin:$PATH"
 {{ end -}}
 
