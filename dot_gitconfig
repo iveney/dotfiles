@@ -1,0 +1,25 @@
+[user]
+	name = Ivan Xiao
+	email = me@ivanxiao.com
+[core]
+	excludesfile = /Users/ivanx/.gitignore_global
+[color]
+	diff = auto
+[alias]
+	wdiff = diff --color-words
+	st = status
+	ci = commit
+	br = branch
+	co = checkout
+	df = diff
+	lg = log -p
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[push]
+	default = simple
+[commit]
+	template = /Users/ivanx/.stCommitMsg
