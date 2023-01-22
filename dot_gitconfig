@@ -1,25 +1,29 @@
 [user]
-	name = Ivan Xiao
-	email = me@ivanxiao.com
+    name = Ivan Xiao
+    email = me@ivanxiao.com
 [core]
-	excludesfile = /Users/ivanx/.gitignore_global
+    excludesfile = /Users/ivanx/.gitignore_global
 [color]
-	diff = auto
+    diff = auto
 [alias]
-	wdiff = diff --color-words
-	st = status
-	ci = commit
-	br = branch
-	co = checkout
-	df = diff
-	lg = log -p
+    wdiff = diff --color-words
+    st = status
+    ci = commit
+    br = branch
+    co = checkout
+    df = diff
+    lg = log -p
 [difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+    cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+    path = 
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+    cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+    trustExitCode = true
 [push]
-	default = simple
+    default = simple
 [commit]
-	template = /Users/ivanx/.stCommitMsg
+    template = /Users/ivanx/.stCommitMsg
+[credential "https://github.com"]
+    helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+    helper = !/usr/bin/gh auth git-credential
