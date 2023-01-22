@@ -1,0 +1,189 @@
+" Binding MEMO:
+" nmap: in normal mode
+" imap: in insert mode
+" cmap: in commandline mode
+" vmap: in visual
+" omap:operating pending
+" lmap: in all(above all)
+" [n|c|...]noremap : not allow recursive mapping
+"Set mapleader( replace <leader> to the string )
+ 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Vundle setting (package management)
+set nocompatible               " be iMproved
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim/
+call vundle#begin()
+
+" Bundles
+
+" goes to a position quickly
+Bundle 'Lokaltog/vim-easymotion'
+" Most Recently Used
+Bundle 'mru.vim'
+" Mini buffer"
+Bundle 'fholgado/minibufexpl.vim'
+" read in local vim file for project
+Bundle 'local_vimrc.vim'
+" Ack-grep
+Bundle 'mileszs/ack.vim'
+" Google C++ coding style
+Bundle 'google.vim'
+" C++11 Highlighting
+Bundle 'octol/vim-cpp-enhanced-highlight'
+" Syntax checking plugin via external prog
+Bundle 'scrooloose/syntastic'
+" Cscope macros and mappings
+Bundle 'iveney/cscope_maps'
+Bundle 'brookhong/cscope.vim'
+
+call vundle#end()            " required
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Basic settings
+
+let mapleader=","
+
+" Sets the character encoding used inside Vim.
+set enc=utf-8
+" Sets the character encoding for the file of this buffer.
+set fenc=utf-8
+" a list of character encodings considered when starting to edit an existing
+" file.
+set fencs=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
+
+set nocompatible
+
+filetype plugin on
+filetype indent on
+syntax on
+syntax enable
+set hlsearch
+
+" the following two combined:
+" when all are small case, ignore case
+" when there's upper case, sensitive
+set ignorecase
+set smartcase
+
+set number
+
+" set the line number color to dark cyan
+hi LineNr ctermfg=darkcyan ctermbg=black
+
+"Fast reloading of the .vimrc
+map <silent> <leader>ss :source ~/.vimrc<cr>
+"Fast editing of .vimrc
+map <silent> <leader>ee :e ~/.vimrc<cr>
+"When .vimrc is edited, reload it
+autocmd! bufwritepost .vimrc source ~/.vimrc 
+
+" switch between header and source file
+map <leader>sw :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
+
+" mark those exceed 80 columns
+highlight OverLength ctermbg=darkred ctermfg=white guibg=#FFD9D9
+match OverLength /\%81v.*/
+nmap <leader>mm :match OverLength /\%81v.*/<cr>
+nmap <leader>mc :match OverLength //<cr>
+
+" dictionary
+set dictionary=/usr/share/dict/words
+
+" STL tags
+set tags+=~/.tags/cpp
+
+" Bash: set current filetype to be bash
+nmap <silent> <leader>b :let g:is_bash=1<cr> :setf sh<cr> 
+
+" Cpp: Don't mark {} inside () as error (for c++11)
+let c_no_curly_error=1
+
+" auto fold 
+"set completeopt=longest,menu
+"set fdm=syntax
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Environment settings
+
+function! MySys()
+  if has("win32")
+    return "windows"
+  else
+    return "linux"
+  endif
+endfunction
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" gui settings
+
+if has("gui")
+	set guifont=Monaco:h12
+
+	" maximize window
+	set lines=999 
+	set columns=999
+	set go-=L
+endif
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" open document and put cursor to the last editing position
+" autocmd BufReadPost * if line("'\"") && line("'\"") <= line("$") | exe "normal`\"" | endif
+
+let Tlist_Show_One_File=1
+let Tlist_Exit_OnlyWindow=1
+
+" MiniBufExplorer
+let g:miniBufExplMapWindowNavVim = 1
+let g:miniBufExplMapWindowNavArrows = 1
+let g:miniBufExplMapCTabSwitchBufs = 1
+let g:miniBufExplModSelTarget = 1 
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ctags and cscope setting
+
+" Cscope: Call ctags to generate tags for c++ source files
+map <C-F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+
+function! GenTags() 
+  :!find . -type f \( -iname "*.cxx" -o -iname "*.cpp" -o -iname "*.h" -o -iname "*.hpp" \) -print > cscope.files
+	:!cscope -bkq -i cscope.files
+	:!ctags --sort=1 --c++-kinds=+p --fields=+iaS --extra=+q --language-force=c++ -f tags -L cscope.files
+endfunction
+
+nmap <D-'> :call GenTags()<CR><CR>
+
+" Quick fix option for make,cn,cp
+autocmd FileType c,cpp  map <buffer> <leader><space> :w<cr>:make<cr>
+nmap <leader>cn :cn<cr>
+nmap <leader>cp :cp<cr>
+nmap <leader>cw :cw 10<cr> 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Tabular:
+" Align the text to `='
+map <leader>t= :Tab/=<cr>
+
+" Gundo:
+map <F5> :GundoToggle<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Override some subvim default settings
+"
+" Syntastic: Use clang++ as syntax checker for Syntastic
+let g:syntastic_cpp_compiler = 'clang++'
+
+" YCM: no need to confirm loading
+let g:ycm_confirm_extra_conf = 0
+" YCM: use eclim
+let g:EclimCompletionMethod = 'omnifunc'
+
+" Indent: personal preference
+set ts=4 sw=4
+set expandtab
+
+" UltiSnip
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
