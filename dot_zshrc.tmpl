@@ -142,5 +142,8 @@ fi
 export PATH="$HOME/homebrew/bin:$HOME/homebrew/sbin:$PATH"
 # Autojump, required for Homebrew in Mac
 [ -f /Users/ivanx/homebrew/etc/profile.d/autojump.sh ] && . /Users/ivanx/homebrew/etc/profile.d/autojump.sh
+{{ else if eq .chezmoi.os "linux" -}}
+# Linux (Raspeberry Pi) path
+export PATH="$HOME/.local/bin:$PATH"
 {{ end -}}
 
