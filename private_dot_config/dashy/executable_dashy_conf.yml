@@ -1,0 +1,225 @@
+appConfig:
+  theme: colorful
+  layout: auto
+  iconSize: medium
+  language: en
+pageInfo:
+  title: Ivan's Homepage
+  description: Welcome to your new dashboard!
+  navLinks:
+    - title: GitHub
+      path: https://github.com/Lissy93/dashy
+      target: newtab
+    - title: Documentation
+      path: https://dashy.to/docs
+      target: newtab
+  footerText: ''
+sections:
+  - name: Entertainment
+    icon: fas fa-photo-video
+    displayData:
+      sortBy: default
+      rows: 1
+      cols: 1
+      collapsed: false
+      hideForGuests: false
+    items:
+      - title: Plex
+        icon: hl-plex
+        url: https://app.plex.tv/
+        target: newtab
+        id: 0_1374_plex
+      - title: YouTube
+        icon: hl-youtube-play
+        url: https://youtube.com
+        id: 1_1374_youtube
+      - title: Bilibili
+        icon: favicon
+        url: https://bilibili.com
+        id: 2_1374_bilibili
+      - title: Netflix
+        icon: favicon
+        url: https://netflix.com
+        id: 3_1374_netflix
+      - title: Prime Video
+        icon: >-
+          https://play-lh.googleusercontent.com/VojafVZNddI6JvdDGWFrRmxc-prrcInL2AuBymsqGoeXjT4f9sv7KnetB-v3iLxk_Koi=w240-h480-rw
+        url: https://www.amazon.com/Prime-Video/b?node=2676882011
+        id: 4_1374_primevideo
+      - title: Amazon
+        icon: favicon
+        url: https://amazon.com
+        id: 5_1374_amazon
+  - name: Home
+    icon: fas fa-house-signal
+    displayData:
+      sortBy: default
+      rows: 1
+      cols: 1
+      collapsed: false
+      hideForGuests: false
+    items:
+      - title: Homebridge
+        icon: hl-homebridge
+        url: http://raspberrypi.local:8581/
+        id: 0_393_homebridge
+      - title: Price Monitor
+        icon: fas fa-chart-line-down
+        url: >-
+          https://charts.mongodb.com/charts-default-project-cvgvf/public/dashboards/63ab514c-2404-429b-8038-c7750037f4f7
+        id: 1_393_pricemonitor
+      - title: Gerapy
+        icon: fas fa-calendar
+        url: http://localhost:8000
+        id: 2_393_gerapy
+      - title: Monitor Config
+        icon: fas fa-table
+        url: http://localhost:8001
+        id: 3_393_monitorconfig
+      - title: Transmission
+        icon: hl-transmission
+        url: http://raspberrypi.local:9091
+        id: 4_393_transmission
+      - title: Raspberry Pi
+        description: Shows system info
+        icon: fas fa-server
+        url: http://raspberrypi.local:61208
+        id: 5_393_raspberrypi
+  - name: Social
+    icon: fas fa-hashtag
+    displayData:
+      sortBy: default
+      rows: 1
+      cols: 1
+      collapsed: false
+      hideForGuests: false
+    items:
+      - title: Twitter
+        icon: hl-twitter
+        url: https://twitter.com
+        id: 0_603_twitter
+      - title: Blind
+        icon: favicon
+        url: https://www.teamblind.com/
+        id: 1_603_blind
+      - title: Facebook
+        icon: hl-facebook
+        url: https://facebook.com
+        id: 2_603_facebook
+      - title: Instagram
+        icon: hl-instagram
+        url: https://instagram.com
+        id: 3_603_instagram
+      - title: Mastodon
+        icon: favicon
+        url: https://mastodon.world/
+        id: 4_603_mastodon
+      - title: reddit
+        icon: hl-reddit
+        url: https://reddit.com
+        id: 5_603_reddit
+  - name: System Info
+    icon: ''
+    displayData:
+      sortBy: default
+      rows: 1
+      cols: 1
+      collapsed: false
+      hideForGuests: false
+    items: []
+    widgets:
+      - type: gl-current-cpu
+        options:
+          hostname: http://raspberrypi.local:61208
+        id: 0_1073_glcurrentcpu
+      - type: gl-cpu-temp
+        options:
+          hostname: http://raspberrypi.local:61208
+        id: 1_1073_glcputemp
+  - name: CPU Info
+    icon: ''
+    displayData:
+      sortBy: default
+      rows: 1
+      cols: 1
+      collapsed: false
+      hideForGuests: false
+    items: []
+    widgets:
+      - type: gl-current-cores
+        options:
+          hostname: http://raspberrypi.local:61208
+        id: 0_660_glcurrentcores
+  - name: Disk Info
+    displayData:
+      sortBy: default
+      rows: 2
+      cols: 1
+      collapsed: false
+      hideForGuests: false
+    items: []
+    widgets:
+      - type: gl-disk-space
+        options:
+          hostname: http://raspberrypi.local:61208
+        id: 0_823_gldiskspace
+  - name: History
+    displayData:
+      sortBy: default
+      rows: 1
+      cols: 2
+      collapsed: false
+      hideForGuests: false
+    items: []
+    widgets:
+      - type: gl-cpu-history
+        options:
+          hostname: http://raspberrypi.local:61208
+          limit: 600
+        id: 0_754_glcpuhistory
+      - type: gl-network-traffic
+        options:
+          hostname: http://raspberrypi.local:61208
+          limit: 500
+        id: 1_754_glnetworktraffic
+  - name: Getting Started
+    icon: fas fa-rocket
+    items:
+      - title: Dashy Live
+        description: Development a project management links for Dashy
+        icon: https://i.ibb.co/qWWpD0v/astro-dab-128.png
+        url: https://live.dashy.to/
+        target: newtab
+        id: 0_1481_dashylive
+      - title: GitHub
+        description: Source Code, Issues and Pull Requests
+        url: https://github.com/lissy93/dashy
+        icon: favicon
+        id: 1_1481_github
+      - title: Docs
+        description: Configuring & Usage Documentation
+        provider: Dashy.to
+        icon: far fa-book
+        url: https://dashy.to/docs
+        id: 2_1481_docs
+      - title: Showcase
+        description: See how others are using Dashy
+        url: https://github.com/Lissy93/dashy/blob/master/docs/showcase.md
+        icon: far fa-grin-hearts
+        id: 3_1481_showcase
+      - title: Config Guide
+        description: See full list of configuration options
+        url: https://github.com/Lissy93/dashy/blob/master/docs/configuring.md
+        icon: fas fa-wrench
+        id: 4_1481_configguide
+      - title: Support
+        description: Get help with Dashy, raise a bug, or get in contact
+        url: https://github.com/Lissy93/dashy/blob/master/.github/SUPPORT.md
+        icon: far fa-hands-helping
+        id: 5_1481_support
+    displayData:
+      sortBy: default
+      rows: 1
+      cols: 1
+      collapsed: true
+      hideForGuests: false
