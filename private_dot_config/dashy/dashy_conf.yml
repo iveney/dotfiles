@@ -61,29 +61,28 @@ sections:
     items:
       - title: Homebridge
         icon: hl-homebridge
-        url: http://raspberrypi.local:8581/
+        url: http://pi.net:8581/
         id: 0_393_homebridge
       - title: Transmission
         icon: hl-transmission
-        url: http://raspberrypi.local:9091
+        url: http://pi.net:9091
         id: 1_393_transmission
       - title: Glances
         description: Shows system info
         icon: hl-glances
-        url: http://raspberrypi.local:61208
+        url: http://pi.net:61208
         id: 2_393_glances
       - title: nest
         icon: fas fa-thermometer-half
-        url: >-
-          http://raspberrypi.local:3000/d/8QQSj6ZRk/thermostats-overview?refresh=5m&orgId=1
+        url: http://pi.net:3000/d/8QQSj6ZRk/thermostats-overview?refresh=5m&orgId=1
         id: 3_393_nest
       - title: Portainer
         icon: hl-portainer
-        url: https://raspberrypi.local:9443/#!/2/docker/dashboard
+        url: https://pi.net:9443/#!/2/docker/dashboard
         id: 4_393_portainer
       - title: pi-hole
         icon: hl-pihole
-        url: http://192.168.4.119/admin/
+        url: http://pi.net/admin/
         id: 5_393_pihole
       - title: Gerapy
         icon: fas fa-calendar
@@ -135,6 +134,14 @@ sections:
         icon: hl-reddit
         url: https://reddit.com
         id: 5_603_reddit
+      - title: HDFans
+        icon: favicon
+        url: https://hdfans.org/torrents.php
+        id: 6_603_hdfans
+      - title: TorrentBytes
+        icon: fas fa-magnet
+        url: https://torrentbytes.net/
+        id: 7_603_torrentbytes
   - name: System Info
     icon: ''
     displayData:
@@ -147,11 +154,11 @@ sections:
     widgets:
       - type: gl-current-cpu
         options:
-          hostname: http://raspberrypi.local:61208
+          hostname: http://pi.net:61208
         id: 0_1073_glcurrentcpu
       - type: gl-cpu-temp
         options:
-          hostname: http://raspberrypi.local:61208
+          hostname: http://pi.net:61208
         id: 1_1073_glcputemp
   - name: CPU Info
     icon: ''
@@ -165,7 +172,7 @@ sections:
     widgets:
       - type: gl-current-cores
         options:
-          hostname: http://raspberrypi.local:61208
+          hostname: http://pi.net:61208
         id: 0_660_glcurrentcores
   - name: Disk Info
     displayData:
@@ -178,7 +185,7 @@ sections:
     widgets:
       - type: gl-disk-space
         options:
-          hostname: http://raspberrypi.local:61208
+          hostname: http://pi.net:61208
         id: 0_823_gldiskspace
   - name: History
     displayData:
@@ -191,12 +198,12 @@ sections:
     widgets:
       - type: gl-cpu-history
         options:
-          hostname: http://raspberrypi.local:61208
+          hostname: http://pi.net:61208
           limit: 600
         id: 0_754_glcpuhistory
       - type: gl-network-traffic
         options:
-          hostname: http://raspberrypi.local:61208
+          hostname: http://pi.net:61208
           limit: 500
         id: 1_754_glnetworktraffic
   - name: Getting Started
