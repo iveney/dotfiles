@@ -1,0 +1,5 @@
+{{- if ne .chezmoi.hostname "raspberrypi" }}
+# transmission, dashy only runs in pi4
+.config/dashy/
+.config/transmission-daemon/
+{{- end }}
