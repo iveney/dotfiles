@@ -81,9 +81,9 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Unfortunately, homebrew is a custom installation at this laptop, so need to load manually
 # and cannot specify as plugin in oh-my-zsh
 {{- if eq .chezmoi.hostname "ivanx-mbp" }}
-plugins=(git zsh-syntax-highlighting)
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
 {{- else }}
-plugins=(git zsh-syntax-highlighting autojump)
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions autojump)
 {{- end }}
 
 source $ZSH/oh-my-zsh.sh
