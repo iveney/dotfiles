@@ -61,28 +61,28 @@ sections:
     items:
       - title: Homebridge
         icon: hl-homebridge
-        url: http://pi.net:8581/
+        url: http://homebridge.pi.arpa
         id: 0_393_homebridge
       - title: Transmission
         icon: hl-transmission
-        url: http://pi.net:9091
+        url: http://transmission.pi.arpa
         id: 1_393_transmission
       - title: Glances
         description: Shows system info
         icon: hl-glances
-        url: http://pi.net:61208
+        url: http://glances.pi.arpa
         id: 2_393_glances
       - title: nest
         icon: fas fa-thermometer-half
-        url: http://pi.net:3000/d/8QQSj6ZRk/thermostats-overview?refresh=5m&orgId=1
+        url: http://nest.pi.arpa/d/8QQSj6ZRk/thermostats-overview?refresh=5m&orgId=1
         id: 3_393_nest
       - title: Portainer
         icon: hl-portainer
-        url: https://pi.net:9443/#!/2/docker/dashboard
+        url: https://portainer.pi.arpa/#!/2/docker/dashboard
         id: 4_393_portainer
       - title: pi-hole
         icon: hl-pihole
-        url: http://pi.net/admin/
+        url: http://pihole.pi.arpa/admin/
         id: 5_393_pihole
       - title: Gerapy
         icon: fas fa-calendar
@@ -99,7 +99,7 @@ sections:
         id: 8_393_pricemonitor
       - title: Placeholder
         icon: fab fa-raspberry-pi
-        url: http://pi.net:8080
+        url: http://placeholder.pi.arpa
         id: 9_393_placeholder
   - name: Social
     icon: fas fa-hashtag
@@ -154,11 +154,11 @@ sections:
     widgets:
       - type: gl-current-cpu
         options:
-          hostname: http://pi.net:61208
+          hostname: http://glances.pi.arpa
         id: 0_1073_glcurrentcpu
       - type: gl-cpu-temp
         options:
-          hostname: http://pi.net:61208
+          hostname: http://glances.pi.arpa
         id: 1_1073_glcputemp
   - name: CPU Info
     icon: ''
@@ -172,7 +172,7 @@ sections:
     widgets:
       - type: gl-current-cores
         options:
-          hostname: http://pi.net:61208
+          hostname: http://glances.pi.arpa
         id: 0_660_glcurrentcores
   - name: Disk Info
     displayData:
@@ -185,7 +185,7 @@ sections:
     widgets:
       - type: gl-disk-space
         options:
-          hostname: http://pi.net:61208
+          hostname: http://glances.pi.arpa
         id: 0_823_gldiskspace
   - name: History
     displayData:
@@ -198,12 +198,12 @@ sections:
     widgets:
       - type: gl-cpu-history
         options:
-          hostname: http://pi.net:61208
+          hostname: http://glances.pi.arpa
           limit: 600
         id: 0_754_glcpuhistory
       - type: gl-network-traffic
         options:
-          hostname: http://pi.net:61208
+          hostname: http://glances.pi.arpa
           limit: 500
         id: 1_754_glnetworktraffic
   - name: Getting Started
