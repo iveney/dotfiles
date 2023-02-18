@@ -3,8 +3,10 @@
     email = me@ivanxiao.com
 [core]
     excludesfile = /Users/ivanx/.gitignore_global
+	pager = diff-so-fancy | less --tabs=4 -RFX
 [color]
     diff = auto
+	ui = true
 [alias]
     wdiff = diff --color-words
     st = status
@@ -27,3 +29,18 @@
     helper = !gh auth git-credential
 [credential "https://gist.github.com"]
     helper = !gh auth git-credential
+[interactive]
+	diffFilter = diff-so-fancy --patch
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+[color "diff"]
+	meta = 11
+	frag = magenta bold
+	func = 146 bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
