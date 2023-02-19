@@ -1,5 +1,5 @@
 appConfig:
-  theme: colorful
+  theme: one-dark
   layout: auto
   iconSize: medium
   language: en
@@ -89,19 +89,18 @@ sections:
         icon: hl-nginxproxymanager
         url: https://npm.pi.arpa
         id: 6_393_npm
+      - title: Cockpit
+        icon: hl-cockpit
+        url: https://cockpit.pi.arpa/
+        id: 7_393_cockpit
       - title: Gerapy
         icon: fas fa-calendar
         url: http://ivanx-mbp.local:8000
-        id: 7_393_gerapy
+        id: 8_393_gerapy
       - title: Monitor Config
         icon: fas fa-table
         url: http://ivanx-mbp.local:8001
-        id: 8_393_monitorconfig
-      - title: Price Monitor
-        icon: fas fa-chart-line-down
-        url: >-
-          https://charts.mongodb.com/charts-default-project-cvgvf/public/dashboards/63ab514c-2404-429b-8038-c7750037f4f7
-        id: 9_393_pricemonitor
+        id: 9_393_monitorconfig
   - name: Social
     icon: fas fa-hashtag
     displayData:
@@ -143,6 +142,15 @@ sections:
         icon: fas fa-magnet
         url: https://torrentbytes.net/
         id: 7_603_torrentbytes
+      - title: Price Monitor
+        icon: fas fa-chart-line-down
+        url: >-
+          https://charts.mongodb.com/charts-default-project-cvgvf/public/dashboards/63ab514c-2404-429b-8038-c7750037f4f7
+        id: 8_603_pricemonitor
+      - title: chatGPT
+        icon: favicon
+        url: https://chat.openai.com/chat
+        id: 9_603_chatgpt
   - name: System Info
     icon: ''
     displayData:
