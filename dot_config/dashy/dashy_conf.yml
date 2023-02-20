@@ -50,6 +50,14 @@ sections:
         icon: favicon
         url: https://amazon.com
         id: 5_1374_amazon
+      - title: HDFans
+        icon: favicon
+        url: https://hdfans.org/torrents.php
+        id: 6_1374_hdfans
+      - title: TorrentBytes
+        icon: fas fa-magnet
+        url: https://torrentbytes.net/
+        id: 7_1374_torrentbytes
   - name: Home
     icon: fas fa-house-signal
     displayData:
@@ -83,7 +91,7 @@ sections:
         id: 4_393_portainer
       - title: pi-hole
         icon: hl-pihole
-        url: http://pihole.pi.arpa/admin/
+        url: http://pihole.pi.arpa/
         id: 5_393_pihole
       - title: NPM
         icon: hl-nginxproxymanager
@@ -93,14 +101,14 @@ sections:
         icon: hl-cockpit
         url: https://cockpit.pi.arpa/
         id: 7_393_cockpit
-      - title: Gerapy
-        icon: fas fa-calendar
-        url: http://ivanx-mbp.local:8000
-        id: 8_393_gerapy
-      - title: Monitor Config
-        icon: fas fa-table
-        url: http://ivanx-mbp.local:8001
-        id: 9_393_monitorconfig
+      - title: remote it
+        icon: favicon
+        url: https://app.remote.it/
+        id: 8_393_remoteit
+      - title: Wireguard
+        icon: hl-wireguard
+        url: https://wg.pi.arpa
+        id: 9_393_wireguard
   - name: Social
     icon: fas fa-hashtag
     displayData:
@@ -110,47 +118,47 @@ sections:
       collapsed: false
       hideForGuests: false
     items:
-      - title: Twitter
-        icon: hl-twitter
-        url: https://twitter.com
-        id: 0_603_twitter
-      - title: Blind
-        icon: favicon
-        url: https://www.teamblind.com/
-        id: 1_603_blind
       - title: Facebook
         icon: hl-facebook
         url: https://facebook.com
-        id: 2_603_facebook
+        id: 0_603_facebook
       - title: Instagram
         icon: hl-instagram
         url: https://instagram.com
-        id: 3_603_instagram
-      - title: Mastodon
-        icon: favicon
-        url: https://mastodon.world/
-        id: 4_603_mastodon
-      - title: reddit
-        icon: hl-reddit
-        url: https://reddit.com
-        id: 5_603_reddit
-      - title: HDFans
-        icon: favicon
-        url: https://hdfans.org/torrents.php
-        id: 6_603_hdfans
-      - title: TorrentBytes
-        icon: fas fa-magnet
-        url: https://torrentbytes.net/
-        id: 7_603_torrentbytes
+        id: 1_603_instagram
       - title: Price Monitor
         icon: fas fa-chart-line-down
         url: >-
           https://charts.mongodb.com/charts-default-project-cvgvf/public/dashboards/63ab514c-2404-429b-8038-c7750037f4f7
-        id: 8_603_pricemonitor
+        id: 2_603_pricemonitor
       - title: chatGPT
         icon: favicon
         url: https://chat.openai.com/chat
-        id: 9_603_chatgpt
+        id: 3_603_chatgpt
+      - title: Blind
+        icon: favicon
+        url: https://www.teamblind.com/
+        id: 4_603_blind
+      - title: reddit
+        icon: hl-reddit
+        url: https://reddit.com
+        id: 5_603_reddit
+      - title: Mastodon
+        icon: favicon
+        url: https://mastodon.world/
+        id: 6_603_mastodon
+      - title: Twitter
+        icon: hl-twitter
+        url: https://twitter.com
+        id: 7_603_twitter
+      - title: Gerapy
+        icon: fas fa-calendar
+        url: http://ivanx-mbp.local:8000
+        id: 8_603_gerapy
+      - title: Monitor Config
+        icon: fas fa-table
+        url: http://ivanx-mbp.local:8001
+        id: 9_603_monitorconfig
   - name: System Info
     icon: ''
     displayData:
