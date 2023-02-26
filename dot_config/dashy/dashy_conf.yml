@@ -3,6 +3,42 @@ appConfig:
   layout: auto
   iconSize: medium
   language: en
+  startingView: default
+  defaultOpeningMethod: newtab
+  statusCheck: false
+  statusCheckInterval: 5
+  faviconApi: iconhorse
+  routingMode: history
+  enableMultiTasking: false
+  widgetsAlwaysUseProxy: false
+  webSearch:
+    disableWebSearch: false
+    searchEngine: duckduckgo
+    openingMethod: newtab
+    searchBangs: {}
+  enableFontAwesome: true
+  enableMaterialDesignIcons: false
+  hideComponents:
+    hideHeading: false
+    hideNav: false
+    hideSearch: false
+    hideSettings: false
+    hideFooter: false
+  auth:
+    enableGuestAccess: false
+    users: []
+    enableKeycloak: false
+  showSplashScreen: false
+  preventWriteToDisk: false
+  preventLocalSave: false
+  disableConfiguration: false
+  disableConfigurationForNonAdmin: false
+  allowConfigEdit: true
+  enableServiceWorker: false
+  disableContextMenu: false
+  disableUpdateChecks: false
+  disableSmartSort: false
+  enableErrorReporting: false
 pageInfo:
   title: Ivan's Homelab
   description: ''
@@ -58,6 +94,14 @@ sections:
         icon: fas fa-magnet
         url: https://torrentbytes.net/
         id: 7_1374_torrentbytes
+      - title: Radarr
+        icon: hl-radarr
+        url: https://radarr.pi.arpa
+        id: 8_1374_radarr
+      - title: Prowlarr
+        icon: hl-prowlarr
+        url: https://prowlarr.pi.arpa
+        id: 9_1374_prowlarr
   - name: Home
     icon: fas fa-house-signal
     displayData:
