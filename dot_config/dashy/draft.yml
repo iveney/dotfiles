@@ -1,0 +1,19 @@
+sections:
+  - name: Home Temperature
+    items: []
+    widgets:
+      - type: iframe
+        options:
+          url: >-
+            https://nest.pi.arpa/d/QdHGXdigz/thermostats-compact?orgId=1&from=1677413111354&to=1677456311354&refresh=5m&kiosk
+          frameHeight: 350
+    displayData:
+      sortBy: default
+      rows: 1
+      cols: 3
+      collapsed: false
+      hideForGuests: false
+pageInfo:
+  title: Draft Page!
+  description: Just play with dashy
+  navLinks: []
