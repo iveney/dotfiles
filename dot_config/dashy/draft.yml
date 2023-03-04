@@ -5,7 +5,7 @@ sections:
       - type: iframe
         options:
           url: >-
-            https://nest.pi.arpa/d/QdHGXdigz/thermostats-compact?orgId=1&from=1677413111354&to=1677456311354&refresh=5m&kiosk
+            https://grafana.ivanxiao.com/d/QdHGXdigz/thermostats-compact?refresh=5m&orgId=1&kiosk
           frameHeight: 350
     displayData:
       sortBy: default
