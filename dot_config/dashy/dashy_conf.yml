@@ -1,14 +1,14 @@
 appConfig:
   theme: one-dark
   layout: auto
-  iconSize: small
+  iconSize: medium
   language: en
   startingView: default
   defaultOpeningMethod: newtab
   statusCheck: false
   statusCheckInterval: 5
   faviconApi: iconhorse
-  routingMode: history
+  routingMode: hash
   enableMultiTasking: false
   widgetsAlwaysUseProxy: false
   webSearch:
@@ -51,7 +51,7 @@ pageInfo:
       target: newtab
   footerText: ''
 sections:
-  - name: Entertainment
+  - name: Media
     icon: fas fa-photo-video
     displayData:
       sortBy: default
@@ -64,44 +64,40 @@ sections:
         icon: hl-plex
         url: https://app.plex.tv/
         target: newtab
-        id: 0_1374_plex
+        id: 0_480_plex
       - title: YouTube
         icon: hl-youtube-play
         url: https://youtube.com
-        id: 1_1374_youtube
+        id: 1_480_youtube
       - title: Bilibili
         icon: favicon
         url: https://bilibili.com
-        id: 2_1374_bilibili
-      - title: Netflix
-        icon: favicon
-        url: https://netflix.com
-        id: 3_1374_netflix
+        id: 2_480_bilibili
       - title: Prime Video
         icon: >-
           https://play-lh.googleusercontent.com/VojafVZNddI6JvdDGWFrRmxc-prrcInL2AuBymsqGoeXjT4f9sv7KnetB-v3iLxk_Koi=w240-h480-rw
         url: https://www.amazon.com/Prime-Video/b?node=2676882011
-        id: 4_1374_primevideo
-      - title: Amazon
-        icon: favicon
-        url: https://amazon.com
-        id: 5_1374_amazon
+        id: 3_480_primevideo
       - title: HDFans
         icon: favicon
         url: https://hdfans.org/torrents.php
-        id: 6_1374_hdfans
+        id: 4_480_hdfans
       - title: TorrentBytes
-        icon: fas fa-magnet
+        icon: favicon
         url: https://torrentbytes.net/
-        id: 7_1374_torrentbytes
+        id: 5_480_torrentbytes
       - title: Radarr
         icon: hl-radarr
         url: https://radarr.pi.arpa
-        id: 8_1374_radarr
+        id: 6_480_radarr
       - title: Prowlarr
         icon: hl-prowlarr
         url: https://prowlarr.pi.arpa
-        id: 9_1374_prowlarr
+        id: 7_480_prowlarr
+      - title: Transmission
+        icon: hl-transmission
+        url: http://transmission.pi.arpa
+        id: 8_480_transmission
   - name: Home
     icon: fas fa-house-signal
     displayData:
@@ -115,44 +111,43 @@ sections:
         icon: hl-homebridge
         url: http://homebridge.pi.arpa
         id: 0_393_homebridge
-      - title: Transmission
-        icon: hl-transmission
-        url: http://transmission.pi.arpa
-        id: 1_393_transmission
       - title: Glances
         description: Shows system info
         icon: hl-glances
         url: http://glances.pi.arpa
-        id: 2_393_glances
-      - title: nest
-        icon: fas fa-thermometer-half
-        url: >-
-          http://nest.pi.arpa/d/8QQSj6ZRk/thermostats-overview?refresh=5m&orgId=1
-        id: 3_393_nest
+        id: 1_393_glances
+      - title: Grafana
+        icon: hl-grafana
+        url: https://grafana.pi.arpa
+        id: 2_393_grafana
       - title: Portainer
         icon: hl-portainer
         url: https://portainer.pi.arpa/#!/2/docker/dashboard
-        id: 4_393_portainer
+        id: 3_393_portainer
       - title: pi-hole
         icon: hl-pihole
         url: http://pihole.pi.arpa/
-        id: 5_393_pihole
+        id: 4_393_pihole
       - title: NPM
         icon: hl-nginxproxymanager
         url: https://npm.pi.arpa
-        id: 6_393_npm
+        id: 5_393_npm
       - title: Cockpit
         icon: hl-cockpit
         url: https://cockpit.pi.arpa/
-        id: 7_393_cockpit
+        id: 6_393_cockpit
       - title: remote it
         icon: favicon
         url: https://app.remote.it/
-        id: 8_393_remoteit
+        id: 7_393_remoteit
       - title: Wireguard
         icon: hl-wireguard
         url: https://wg.pi.arpa
-        id: 9_393_wireguard
+        id: 8_393_wireguard
+      - title: Home Assistant
+        icon: hl-home-assistant
+        url: https://ha.pi.arpa
+        id: 9_393_homeassistant
   - name: Social
     icon: fas fa-hashtag
     displayData:
@@ -268,5 +263,5 @@ sections:
           limit: 500
         id: 1_1431_glnetworktraffic
 pages:
-  - name: draft
+  - name: Extra
     path: draft.yml
