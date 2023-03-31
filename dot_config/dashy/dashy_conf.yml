@@ -73,36 +73,35 @@ sections:
         icon: favicon
         url: https://bilibili.com
         id: 2_480_bilibili
-      - title: Prime Video
-        icon: >-
-          https://play-lh.googleusercontent.com/VojafVZNddI6JvdDGWFrRmxc-prrcInL2AuBymsqGoeXjT4f9sv7KnetB-v3iLxk_Koi=w240-h480-rw
-        url: https://www.amazon.com/Prime-Video/b?node=2676882011
-        id: 3_480_primevideo
+      - title: Transmission
+        icon: hl-transmission
+        url: https://transmission.ivanxiao.com
+        id: 7_480_transmission
       - title: HDFans
         icon: favicon
         url: https://hdfans.org/torrents.php
-        id: 4_480_hdfans
+        id: 3_480_hdfans
       - title: TorrentBytes
         icon: >-
           https://torrentbytes.net/themes/anniversary/static/favicon.png.pagespeed.ce.J-ydMW04kQ.png
         url: https://torrentbytes.net/
-        id: 5_480_torrentbytes
+        id: 4_480_torrentbytes
       - title: Radarr
         icon: hl-radarr
         url: https://radarr.ivanxiao.com
-        id: 6_480_radarr
+        id: 5_480_radarr
       - title: Prowlarr
         icon: hl-prowlarr
         url: https://prowlarr.ivanxiao.com
-        id: 7_480_prowlarr
-      - title: Transmission
-        icon: hl-transmission
-        url: https://transmission.ivanxiao.com
-        id: 8_480_transmission
+        id: 6_480_prowlarr
       - title: Calibre
         icon: hl-calibre
         url: https://calibre.ivanxiao.com
-        id: 9_480_calibre
+        id: 8_480_calibre
+      - title: Kavita
+        icon: hl-kavita
+        url: https://kavita.ivanxiao.com
+        id: 9_480_kavita
   - name: Home
     icon: fas fa-house-signal
     displayData:
