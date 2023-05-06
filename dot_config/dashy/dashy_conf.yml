@@ -65,35 +65,35 @@ sections:
         url: https://app.plex.tv/
         target: newtab
         id: 0_480_plex
-      - title: YouTube
-        icon: hl-youtube-play
-        url: https://youtube.com
-        id: 1_480_youtube
-      - title: Bilibili
+      - title: Resilio Sync
+        icon: hl-resiliosync
+        url: https://rs.ivanxiao.com
+        id: 1_480_resiliosync
+      - title: Azusa
         icon: favicon
-        url: https://bilibili.com
-        id: 2_480_bilibili
+        url: https://azusa.wiki/
+        id: 2_480_azusa
       - title: Transmission
         icon: hl-transmission
         url: https://transmission.ivanxiao.com
-        id: 7_480_transmission
+        id: 3_480_transmission
       - title: HDFans
         icon: favicon
         url: https://hdfans.org/torrents.php
-        id: 3_480_hdfans
+        id: 4_480_hdfans
       - title: TorrentBytes
         icon: >-
           https://torrentbytes.net/themes/anniversary/static/favicon.png.pagespeed.ce.J-ydMW04kQ.png
         url: https://torrentbytes.net/
-        id: 4_480_torrentbytes
+        id: 5_480_torrentbytes
       - title: Radarr
         icon: hl-radarr
         url: https://radarr.ivanxiao.com
-        id: 5_480_radarr
+        id: 6_480_radarr
       - title: Prowlarr
         icon: hl-prowlarr
         url: https://prowlarr.ivanxiao.com
-        id: 6_480_prowlarr
+        id: 7_480_prowlarr
       - title: Calibre
         icon: hl-calibre
         url: https://calibre.ivanxiao.com
@@ -177,27 +177,31 @@ sections:
         icon: favicon
         url: https://mastodon.world/
         id: 3_603_mastodon
-      - title: Twitter
-        icon: hl-twitter
-        url: https://twitter.com
-        id: 4_603_twitter
+      - title: Authelia
+        icon: hl-authelia
+        url: https://auth.ivanxiao.com
+        id: 4_603_authelia
+      - title: Prometheus
+        icon: hl-prometheus
+        url: https://prometheus.ivanxiao.com
+        id: 5_603_prometheus
+      - title: Scrapyd
+        icon: https://scrapy.org/favicons/favicon-96x96.png
+        url: https://scrapyd.ivanxiao.com
+        id: 6_603_scrapyd
       - title: Gerapy
         icon: far fa-clock
         url: https://gerapy.ivanxiao.com
-        id: 5_603_gerapy
-      - title: Monitor Config
-        icon: fas fa-table
-        url: https://price-monitor-crud.ivanxiao.com
-        id: 6_603_monitorconfig
+        id: 7_603_gerapy
       - title: Price Monitor
         icon: fas fa-chart-line-down
         url: >-
           https://charts.mongodb.com/charts-default-project-cvgvf/public/dashboards/63ab514c-2404-429b-8038-c7750037f4f7
-        id: 7_603_pricemonitor
-      - title: remote it
-        icon: favicon
-        url: https://app.remote.it/
-        id: 8_603_remoteit
+        id: 8_603_pricemonitor
+      - title: Monitor Config
+        icon: fas fa-table
+        url: https://price-monitor-crud.ivanxiao.com
+        id: 9_603_monitorconfig
   - name: System Info
     icon: ''
     displayData:
@@ -262,6 +266,3 @@ sections:
           hostname: https://glances.ivanxiao.com
           limit: 500
         id: 1_1431_glnetworktraffic
-pages:
-  - name: Extra
-    path: draft.yml
