@@ -78,9 +78,16 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
-# Unfortunately, homebrew is a custom installation at this laptop, so need to load manually
-# and cannot specify as plugin in oh-my-zsh
+{{- if eq .chezmoi.hostname "n2" }}
+# For NAS, I installed asdf at /opt/asdf so all users can access
+# This is to help the omz plugin to find its install location
+export ASDF_DATA_DIR=/opt/asdf
+{{- end }}
+
+
 {{- if eq .chezmoi.hostname "ivanx-mbp" }}
+# Unfortunately, `homebrew` is a custom installation at company laptop. Need to load manually
+# and cannot specify as plugin in oh-my-zsh
 plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
 {{- else }}
 plugins=(git zsh-syntax-highlighting zsh-autosuggestions autojump asdf)
