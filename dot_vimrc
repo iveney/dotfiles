@@ -34,8 +34,8 @@ Bundle 'octol/vim-cpp-enhanced-highlight'
 " Syntax checking plugin via external prog
 Bundle 'scrooloose/syntastic'
 " Cscope macros and mappings
-Bundle 'iveney/cscope_maps'
-Bundle 'brookhong/cscope.vim'
+"Bundle 'iveney/cscope_maps'
+"Bundle 'brookhong/cscope.vim'
 
 call vundle#end()            " required
 
