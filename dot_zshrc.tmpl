@@ -193,6 +193,14 @@ export PATH="$HOME/homebrew/bin:$HOME/homebrew/sbin:$PATH"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+
+###########################################################################
+# fd
+###########################################################################
+# In Debian, fd is renamed to fdfind as it conflicts with another
+[[ ! -n $(command -v fdfind) ]] || alias fd="fdfind"
+
+
 ###########################################################################
 # fzf
 ###########################################################################
