@@ -171,8 +171,8 @@ if [[ -n $SSH_CONNECTION ]]; then
 else
   {{ if eq .chezmoi.os "darwin" -}}
   # use sublime
-  export EDITOR='subl'
-  export VISUAL='subl'
+  export EDITOR='nvim'
+  export VISUAL='nvim'
   {{- else if eq .chezmoi.os "linux" -}}
   # just use vim
   export EDITOR='nvim'
@@ -212,7 +212,9 @@ FZF_WALKER_SKIP=.git,node_modules,target,go,Cache,Caches,cache,caches,.cache,.py
 export FZF_CTRL_T_OPTS="
   --walker-skip $FZF_WALKER_SKIP
   --preview 'bat -n --color=always {}'
-  --bind 'ctrl-/:change-preview-window(down|hidden|)'"
+  --bind 'ctrl-/:change-preview-window(down|hidden|)'
+  --bind 'ctrl-o:become(${EDITOR:-vim} {} < /dev/tty > /dev/tty)'
+  "
 
 # CTRL-/ to toggle small preview window to see the full command
 # CTRL-Y to copy the command into clipboard using pbcopy
