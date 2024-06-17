@@ -1,3 +1,9 @@
+{{- if eq .chezmoi.hostname "ivanx-mbp" }}
+# Add all SSH related private keys in the keychain to ssh-agent 
+# This is needed to put before p10k initialization
+ssh-add -q --apple-load-keychain
+{{- end}}
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
