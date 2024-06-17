@@ -196,16 +196,15 @@ export PATH="$HOME/homebrew/bin:$HOME/homebrew/sbin:$PATH"
 ###########################################################################
 # fzf
 ###########################################################################
-{{- if eq .chezmoi.hostname "ivanx-mbp" }}
-source <(fzf --zsh)
-{{- else }}
-# For Debian only: need to manually source the keybindings and completion
-# Since fzf 0.48, this step is simplified. 
-
-# fzf zsh completion and key bindings
-source /usr/share/doc/fzf/examples/key-bindings.zsh
-source /usr/share/doc/fzf/examples/completion.zsh
+{{- if eq .chezmoi.hostname "n2" }}
+# Before fzf 0.48, need to manually source the keybindings and completion
+# after fzf 0.48, this step is simplified. Debian unstable only uses 0.46 as Jun 2024,
+# I manually installed on /opt to support latest features.
+# For any host using 0.48+ version
+export PATH="$PATH:/opt/fzf/bin"
 {{- end}}
+
+[[ -n $(command -v fzf) ]] && source <(fzf --zsh)
 
 # Preview file content using bat (https://github.com/sharkdp/bat)
 export FZF_CTRL_T_OPTS="
