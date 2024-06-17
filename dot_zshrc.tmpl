@@ -206,9 +206,11 @@ export PATH="$PATH:/opt/fzf/bin"
 
 [[ -n $(command -v fzf) ]] && source <(fzf --zsh)
 
+FZF_WALKER_SKIP=.git,node_modules,target,go,Cache,Caches,cache,caches,.cache,.pyenv # Preview file content using bat (https://github.com/sharkdp/bat)
+
 # Preview file content using bat (https://github.com/sharkdp/bat)
 export FZF_CTRL_T_OPTS="
-  --walker-skip .git,node_modules,target,go,Cache,Caches,cache,caches,.cache
+  --walker-skip $FZF_WALKER_SKIP
   --preview 'bat -n --color=always {}'
   --bind 'ctrl-/:change-preview-window(down|hidden|)'"
 
@@ -223,6 +225,28 @@ export FZF_CTRL_R_OPTS="
 
 # Print tree structure in the preview window
 export FZF_ALT_C_OPTS="--preview 'lsd --tree --color always {}'"
+
+# Custom completion run command
+# See fzf completion.zsh
+export FZF_COMPLETION_OPTS="
+  --walker-skip $FZF_WALKER_SKIP
+  --bind 'ctrl-/:toggle-preview'
+  "
+_fzf_comprun() {
+  local command=$1
+  shift
+
+  case "$command" in
+    mosh|ssh)     fzf --preview 'dig {}'                   "$@" ;;
+    *)            fzf --preview 'if [ -d {} ]; then lsd --tree --color always {}; \
+                                 elif [ -f {} ]; then bat -f --style=numbers {}; fi' "$@" ;;
+  esac
+}
+
+# apply predefined ssh command completion for mosh
+_fzf_complete_mosh() {
+  _fzf_complete_ssh "$@"
+}
 
 ###########################################################################
 
